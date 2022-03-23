@@ -2,9 +2,9 @@ module go-ls
 
 go 1.17
 
-require github.com/urfave/cli/v2 v2.4.0
+require github.com/devfacet/gocmd v3.1.0+incompatible
 
 require (
-	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
-	github.com/russross/blackfriday/v2 v2.1.0 // indirect
+	github.com/pwaller/goupx v0.0.0-20160623083017-1d58e01d5ce2 // indirect
+	github.com/smartystreets/goconvey v1.7.2 // indirect
 )

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"go-ls/domain"
-	"strings"
 )
 
 type Output struct {
@@ -41,9 +40,11 @@ func (o *Output) FormatFile(file *domain.FileItem) string {
 	if file.Name[0] == '.' && !o.ShowHidden {
 		return ""
 	}
-	if strings.Contains(file.Info.Mode().String(), "x") {
-		name = fmt.Sprintf("%s%s%s", BoldGreen, file.Name, Reset)
-	}
+  for _, letter := range file.Info.Mode().String() {
+    if letter == 'x' {
+      name = fmt.Sprintf("%s%s%s", BoldGreen, file.Name, Reset)
+    }
+  }
 	return fmt.Sprintf("%s %s %s %s\n", file.Info.Mode().String(), showIf(o.ShowGroupOwner, file.GroupOwner), showIf(o.ShowUserOwner, file.UserOwner), name)
 }
 
